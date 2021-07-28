@@ -1,6 +1,8 @@
 import React, { createContext } from 'react';
 import { checkEmailValid, checkPasswordValid } from '../utils/checkValid';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
+import { fetchSignUp } from '../utils/fetchAPI';
 
 const SignUpContainer = styled.div`
   border: 1px solid blue;
@@ -20,6 +22,8 @@ const SignUp = () => {
   const [secondPassword, setSecondPassword] = React.useState('');
   const [mobile, setMobile] = React.useState('');
 
+  const history = useHistory();
+
   const emailFocusOut = (e: React.FocusEvent<HTMLInputElement>) => {
     if (checkEmailValid(email) !== -1) {
       setEmailValid(true);
@@ -34,6 +38,27 @@ const SignUp = () => {
     checkPasswordValid(password)
       ? setPasswordValid(true)
       : setPasswordValid(false);
+  };
+
+  const submit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (!emailValid) {
+      alert('이메일 확인');
+      return;
+    }
+    if (!passwordValid) {
+      alert('비밀번호 확인');
+      return;
+    }
+    if (password !== secondPassword) {
+      alert('비밀번호 불일치');
+      return;
+    }
+
+    const response = await fetchSignUp({ email, password, mobile });
+    const token = response.token;
+    createContext(token);
+    history.push('/');
   };
 
   React.useEffect(() => {
@@ -71,7 +96,7 @@ const SignUp = () => {
           placeholder={`전화번호`}
           type="text"
         />
-        <button>{'가입'}</button>
+        <button onClick={submit}>{'가입'}</button>
       </div>
     </SignUpContainer>
   );

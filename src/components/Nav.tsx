@@ -22,6 +22,7 @@ const Menu = styled.ul`
 `;
 
 const MenuItem = styled.li``;
+
 const Nav = () => {
   return (
     <HeadContainer>
