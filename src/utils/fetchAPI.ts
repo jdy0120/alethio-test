@@ -1,10 +1,15 @@
-interface Props {
+interface LoginProps {
   email: string;
   password: string;
-  mobile: string;
+  mobile?: string;
 }
 
-export const fetchSignUp = async ({ email, password, mobile }: Props) => {
+interface OrderProps {
+  page?: number;
+  id?: number;
+}
+
+export const fetchSignUp = async ({ email, password, mobile }: LoginProps) => {
   const response = await fetch(`http://106.10.53.116:8099/sign-up`, {
     method: 'POST',
     headers: {
@@ -22,8 +27,42 @@ export const fetchSignUp = async ({ email, password, mobile }: Props) => {
   return token;
 };
 
-export const fetchLogIn = async () => {};
+export const fetchLogIn = async ({ email, password }: LoginProps) => {
+  const response = await fetch(`http://106.10.53.116:8099/login`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      email: email,
+      password: password,
+    }),
+  });
 
-export const fetchOrder = async () => {};
+  const token = await response.json();
+  return token;
+};
 
-export const fetchOrderDetail = async () => {};
+export const fetchOrder = async ({ page }: OrderProps) => {
+  const response = await fetch(`http://106.10.53.116:8099/order?page=${page}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const items = await response.json();
+  return items;
+};
+
+export const fetchOrderDetail = async ({ id }: OrderProps) => {
+  const response = await fetch(`http://106.10.53.116:8099/order/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const itemDetail = await response.json();
+  return itemDetail;
+};

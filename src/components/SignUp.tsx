@@ -1,8 +1,9 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import { checkEmailValid, checkPasswordValid } from '../utils/checkValid';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { fetchSignUp } from '../utils/fetchAPI';
+import { useAppContext } from '../_providers/AppProviders';
 
 const SignUpContainer = styled.div`
   border: 1px solid blue;
@@ -21,6 +22,7 @@ const SignUp = () => {
   const [passwordValid, setPasswordValid] = React.useState(false);
   const [secondPassword, setSecondPassword] = React.useState('');
   const [mobile, setMobile] = React.useState('');
+  const { setToken } = useAppContext();
 
   const history = useHistory();
 
@@ -34,10 +36,6 @@ const SignUp = () => {
 
   const passwordFocusOn = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
-
-    checkPasswordValid(password)
-      ? setPasswordValid(true)
-      : setPasswordValid(false);
   };
 
   const submit = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -57,13 +55,17 @@ const SignUp = () => {
 
     const response = await fetchSignUp({ email, password, mobile });
     const token = response.token;
-    createContext(token);
+    setToken(token);
     history.push('/');
   };
 
   React.useEffect(() => {
     console.log(emailValid, passwordValid);
-  }, [emailValid, password]);
+    console.log(password);
+    checkPasswordValid(password)
+      ? setPasswordValid(true)
+      : setPasswordValid(false);
+  }, [emailValid, password, passwordValid]);
 
   return (
     <SignUpContainer>
