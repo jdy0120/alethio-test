@@ -1,5 +1,4 @@
 import OrderList from './orderList/OrderList';
-import React from 'react';
 
 const MyPage = () => {
   return (

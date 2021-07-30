@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link, Switch, Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import styled from 'styled-components';
 import { useAppContext } from '../_providers/AppProviders';

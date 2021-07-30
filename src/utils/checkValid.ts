@@ -1,10 +1,11 @@
-export const checkEmailValid = (email: string) => {
-  const regEmail = /([a-z|A-Z|0-9]@[a-z|A-Z|0-9].[a-z|A-Z|0-9])/;
-  const validEmail = email.search(regEmail);
+export const checkEmailValid = (email: string): boolean => {
+  const regEmail =
+    /[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]$/i;
+  const validEmail = regEmail.test(email);
   return validEmail;
 };
 
-export const checkPasswordValid = (password: string) => {
+export const checkPasswordValid = (password: string): boolean => {
   if (password.length < 8) {
     return false;
   } else if (password.length > 15) {

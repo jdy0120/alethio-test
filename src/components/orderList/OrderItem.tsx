@@ -1,15 +1,23 @@
 import { Item } from '../../types';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-interface Props extends Item {
-  index: number;
-}
+const OrderItemContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
 
-const OrderItem = ({ id, itemName, index }: Props) => {
+interface Props extends Item {}
+
+const OrderItem = ({ id, itemName }: Props) => {
   return (
-    <div key={index}>
-      <p>{id}</p>
-      <p>{itemName}</p>
-    </div>
+    <>
+      <OrderItemContainer>
+        <p>{id}</p>
+        <Link to={`/mypage/order/${id}`}>{itemName}</Link>
+      </OrderItemContainer>
+    </>
   );
 };
 

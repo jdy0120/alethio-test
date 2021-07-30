@@ -6,7 +6,7 @@ interface LoginProps {
 
 interface OrderProps {
   page?: number;
-  id?: number;
+  id?: string;
 }
 
 export const fetchSignUp = async ({ email, password, mobile }: LoginProps) => {
@@ -23,24 +23,27 @@ export const fetchSignUp = async ({ email, password, mobile }: LoginProps) => {
   });
 
   const token = await response.json();
-  console.log(token);
   return token;
 };
 
 export const fetchLogIn = async ({ email, password }: LoginProps) => {
-  const response = await fetch(`http://106.10.53.116:8099/login`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      email: email,
-      password: password,
-    }),
-  });
+  try {
+    const response = await fetch(`http://106.10.53.116:8099/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    });
 
-  const token = await response.json();
-  return token;
+    const token = await response.json();
+    return token;
+  } catch (err) {
+    throw new Error(err);
+  }
 };
 
 export const fetchOrder = async ({ page }: OrderProps) => {

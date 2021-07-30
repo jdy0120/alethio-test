@@ -5,9 +5,11 @@ import { useHistory } from 'react-router';
 const LogOut = () => {
   const history = useHistory();
   const { removeToken } = useAppContext();
-  removeToken();
+  React.useEffect(() => {
+    removeToken();
+    history.push('/');
+  });
 
-  history.push('/');
   return <>{'로그아웃'}</>;
 };
 

@@ -22,10 +22,14 @@ const LogIn = () => {
   const history = useHistory();
 
   const getToken = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    const response = await fetchLogIn({ email, password });
-    const token = response.token;
-    setToken(token);
-    history.push('/');
+    try {
+      const response = await fetchLogIn({ email, password });
+      const token = response.token;
+      setToken(token);
+      history.push('/');
+    } catch (err) {
+      alert('비밀번호를 확인해주세요.');
+    }
   };
 
   return (
