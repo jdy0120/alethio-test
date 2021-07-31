@@ -20,6 +20,7 @@ const OrderItemDetail = ({ match }: RouteComponentProps<MatchParams>) => {
   const getItemDetail = async () => {
     setLoading(true);
     const { id } = match.params;
+    console.log(id);
     const detail = await fetchOrderDetail({ id });
 
     setItemDetail(detail);
@@ -28,7 +29,7 @@ const OrderItemDetail = ({ match }: RouteComponentProps<MatchParams>) => {
 
   React.useEffect(() => {
     getItemDetail();
-  });
+  }, []);
 
   return (
     <>

@@ -8,8 +8,8 @@ const ItemContainer = styled.div`
 `;
 
 const ImgStyle = styled.img`
-  width: 300px;
-  height: 300px;
+  width: 100px;
+  height: 100px;
 `;
 
 const OrderButton = styled.button`
@@ -37,6 +37,8 @@ const ServiceItem = ({ itemImg }: Props) => {
       history.push('/login');
     }
   };
+
+  console.log('ServiceItem');
 
   return (
     <ItemContainer>

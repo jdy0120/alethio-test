@@ -21,6 +21,8 @@ const LogIn = () => {
 
   const history = useHistory();
 
+  console.log('LogIn');
+
   const getToken = async (e: React.MouseEvent<HTMLButtonElement>) => {
     try {
       const response = await fetchLogIn({ email, password });

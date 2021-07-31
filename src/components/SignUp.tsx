@@ -1,15 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
-import { fetchSignUp } from '../../utils/fetchAPI';
-import { useAppContext } from '../../_providers/AppProviders';
-import { checkEmailValid, checkPasswordValid } from '../../utils/checkValid';
-import Email from './Email';
-import Password from './Password';
-import Mobile from './Mobile';
+import { fetchSignUp } from '../utils/fetchAPI';
+import { useAppContext } from '../_providers/AppProviders';
+import { checkEmailValid, checkPasswordValid } from '../utils/checkValid';
+import Email from './signup/Email';
+import Password from './signup/Password';
+import Mobile from './signup/Mobile';
 
 const SignUpContainer = styled.div`
-  border: 1px solid blue;
   display: flex;
   justify-content: center;
 `;
@@ -24,6 +23,8 @@ const SignUp = () => {
   const { setToken } = useAppContext();
 
   const history = useHistory();
+
+  console.log('SignUp');
 
   const submit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();

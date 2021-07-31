@@ -11,6 +11,7 @@ const ServiceContainer = styled.div`
 `;
 
 const Service = () => {
+  console.log('Service');
   return (
     <>
       <ServiceContainer>

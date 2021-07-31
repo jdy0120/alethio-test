@@ -3,12 +3,13 @@ import { useAppContext } from '../_providers/AppProviders';
 import { useHistory } from 'react-router';
 
 const LogOut = () => {
+  console.log('LogOut');
   const history = useHistory();
   const { removeToken } = useAppContext();
   React.useEffect(() => {
     removeToken();
     history.push('/');
-  });
+  }, []);
 
   return <>{'로그아웃'}</>;
 };
