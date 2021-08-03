@@ -5,6 +5,9 @@ export const checkEmailValid = (email: string): boolean => {
   return validEmail;
 };
 
+/**
+ * 비밀번호 확인
+ */
 export const checkPasswordValid = (password: string): boolean => {
   if (password.length < 8) {
     return false;

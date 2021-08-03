@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../../assets/logo.png';
 import styled from 'styled-components';
 import { useAppContext } from '../../_providers/AppProviders';
 import Logo from './Logo';
@@ -31,6 +29,9 @@ const HeadContainer = styled.header<HeadContainerProps>`
   }
 `;
 
+/**
+ * 네비게이션
+ */
 const Nav = () => {
   const [modal, setModal] = React.useState(false);
 

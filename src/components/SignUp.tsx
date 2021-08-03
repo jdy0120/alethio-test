@@ -13,6 +13,9 @@ const SignUpContainer = styled.div`
   justify-content: center;
 `;
 
+/**
+ * 회원가입
+ */
 const SignUp = () => {
   const [email, setEmail] = React.useState('');
   const [emailValid, setEmailValid] = React.useState(true);
@@ -22,13 +25,14 @@ const SignUp = () => {
   const [mobile, setMobile] = React.useState('');
   const { setToken } = useAppContext();
 
-  const history = useHistory();
+  const emailRef = React.useRef<HTMLInputElement>(null);
 
-  console.log('SignUp');
+  const history = useHistory();
 
   const submit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!checkEmailValid(email)) {
+      emailRef.current?.focus();
       alert('이메일 확인');
       return;
     }
@@ -53,6 +57,7 @@ const SignUp = () => {
     <SignUpContainer>
       <div>
         <Email
+          emailRef={emailRef}
           email={email}
           emailValid={emailValid}
           setEmail={setEmail}

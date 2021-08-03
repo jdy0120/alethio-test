@@ -10,8 +10,10 @@ const ServiceContainer = styled.div`
   display: flex;
 `;
 
+/**
+ * 서비스 페이지
+ */
 const Service = () => {
-  console.log('Service');
   return (
     <>
       <ServiceContainer>

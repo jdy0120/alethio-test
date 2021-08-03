@@ -2,8 +2,10 @@ import React from 'react';
 import { useAppContext } from '../_providers/AppProviders';
 import { useHistory } from 'react-router';
 
+/**
+ * 로그아웃
+ */
 const LogOut = () => {
-  console.log('LogOut');
   const history = useHistory();
   const { removeToken } = useAppContext();
   React.useEffect(() => {

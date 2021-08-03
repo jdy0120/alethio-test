@@ -14,12 +14,19 @@ const InputBoxEmail = styled(InputStyle)<InputBoxEmailProps>`
 `;
 
 interface Props {
+  emailRef: React.RefObject<HTMLInputElement>;
   email: string;
   emailValid: boolean;
   setEmail: React.Dispatch<React.SetStateAction<string>>;
   setEmailValid: React.Dispatch<React.SetStateAction<boolean>>;
 }
-const Email = ({ email, emailValid, setEmail, setEmailValid }: Props) => {
+const Email = ({
+  emailRef,
+  email,
+  emailValid,
+  setEmail,
+  setEmailValid,
+}: Props) => {
   const emailFocusOn = (e: React.FocusEvent<HTMLInputElement>) => {
     setEmailValid(true);
   };
@@ -42,6 +49,7 @@ const Email = ({ email, emailValid, setEmail, setEmailValid }: Props) => {
         setEmail(e.target.value);
       }}
       type="text"
+      ref={emailRef}
     />
   );
 };

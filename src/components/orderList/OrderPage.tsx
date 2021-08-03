@@ -6,12 +6,20 @@ const OrderPageContainer = styled.div`
   justify-content: center;
 `;
 
+const PageNumber = styled.p`
+  cursor: pointer;
+  margin-left: 5px;
+  margin-right: 5px;
+`;
+
 interface Props {
   totalPage: number;
   nowPage: number;
   setNowPage: React.Dispatch<React.SetStateAction<number>>;
 }
-
+/**
+ * 주문페이지
+ */
 const OrderPage = ({ nowPage, totalPage, setNowPage }: Props) => {
   const clickPageNumber = (e: React.MouseEvent<HTMLParagraphElement>) => {
     const clickedPageIndex = parseInt(e.currentTarget.innerText);
@@ -24,12 +32,12 @@ const OrderPage = ({ nowPage, totalPage, setNowPage }: Props) => {
         .fill(0)
         .map((el, index) => {
           if (index === nowPage) {
-            return <p key={index}>{index + 1}</p>;
+            return <PageNumber key={index}>{index + 1}</PageNumber>;
           } else {
             return (
-              <p onClick={clickPageNumber} key={index}>
+              <PageNumber onClick={clickPageNumber} key={index}>
                 {index + 1}
-              </p>
+              </PageNumber>
             );
           }
         })}

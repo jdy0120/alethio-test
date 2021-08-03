@@ -38,8 +38,6 @@ const ServiceItem = ({ itemImg }: Props) => {
     }
   };
 
-  console.log('ServiceItem');
-
   return (
     <ItemContainer>
       <ImgStyle src={itemImg} alt="" />

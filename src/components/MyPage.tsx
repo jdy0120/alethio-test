@@ -1,7 +1,9 @@
 import OrderList from './orderList/OrderList';
 
+/**
+ * 마이페이지
+ */
 const MyPage = () => {
-  console.log('MyPage');
   return (
     <>
       <OrderList />

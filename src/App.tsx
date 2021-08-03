@@ -9,7 +9,6 @@ import LogOut from './components/LogOut';
 import OrderItemDetail from './components/orderList/OrderItemDetail';
 
 function App() {
-  console.log('App');
   return (
     <>
       <Nav />

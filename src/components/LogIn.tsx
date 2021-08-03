@@ -13,6 +13,9 @@ const InputBox = styled.input`
   display: block;
 `;
 
+/**
+ * 로그인
+ */
 const LogIn = () => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -20,8 +23,6 @@ const LogIn = () => {
   const { setToken } = useAppContext();
 
   const history = useHistory();
-
-  console.log('LogIn');
 
   const getToken = async (e: React.MouseEvent<HTMLButtonElement>) => {
     try {
