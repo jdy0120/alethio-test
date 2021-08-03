@@ -1,46 +1,53 @@
-# Getting Started with Create React App
+# 알레시오 사전과제 구현 목록
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 헤더(메뉴)
 
-## Available Scripts
+- [x] 헤더 좌측에는 서비스 로고, 헤더 우측에는 메뉴 네비게이션이 존재한다.
+- [x] 메뉴 네비게이션에는 좌측부터 순서대로 3가지 메뉴가 존재한다.
+- [x] 메뉴는 클릭(선택) 된 경우 색이 변경된다.
+- [x] 메뉴는 클릭 시, 해당 페이지로 이동 된다.
 
-In the project directory, you can run:
+- [x] 좌측에 로고, 우측에는 메뉴 '햄버거 버튼'이 존재한다.
+- [x] 햄버거 버튼을 클릭하면 화면 전체를 덮는 최상위 뷰가 나오며, 해당 뷰에는 메뉴가 3개 존재한다.
+- [x] 메뉴는 클릭 시, 해당 페이지로 이동 된다.
 
-### `yarn start`
+## 서비스
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [x] 프로젝트 실행 시 최초로 로딩 되는 페이지이다.
+- [x] 서비스 상단에 이미지가 있다.
+- [x] 이미지 하단에 주문 하기 버튼이 있다.
+- [x] 로그인을 하지 않은 사용자의 경우(토큰 없음) 주문 하기 버튼을 클릭 시, 로그인을 하라는 Alert이 발생한다. 그리고 /login 페이지로 이동 된다.
+- [x] 로그인을 한 사용자의 경우(토큰 있음) 신청하기 버튼을 클릭 시, 주문 성공 Alert이 발생한다.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 회원가입
 
-### `yarn test`
+- [x] 회원가입 할 때에 사용 되는 페이지 이다.
+- [x] 회원가입 시 다음과 같은 값을 Input 으로 수집한다.
+- [x] 하단에 가입하기 버튼을 넣는다.
+- [ ] 사용자가 이메일을 입력 시, 올바른 이메일 형식인지 유효성 검증을 해야 한다.
+  - 'cursor가 이동한다'의 의미를 이해하지 못했습니다. 마우스가 해당 태그로 이동하는지 아니면 포커스가 emai 입력 대그로 지정되는건지 email 입력 태그로 포커스되는 방식으로 구현했습니다.
+- [x] 비밀번호는 8~15자를 입력해야 한다.
+- [x] 비밀번호 확인은 비밀번호와 일치하는지 확인해야 한다.
+- [x] 회원가입 성공 시, 서비스 페이지로 이동 된다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 로그인
 
-### `yarn build`
+- [x] 로그인 할 때에 사용 되는 페이지 이다.
+- [x] 로그인 시, 아래와 같은 값을 입력한다.
+- [x] 하단에 로그인 버튼을 넣는다.
+- [x] 로그인 성공 시, 서비스 페이지로 이동된다.
+- [x] 로그인 실패 시, 비밀번호를 확인해 달라는 Alert이 발생 한다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 마이 페이지
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [x] 주문 목록을 볼 때에 사용되는 페이지이다.
+- [x] 해당 페이지에 진입하면, 주문 목록을 불러와야 한다.
+- [x] 주문 목록은 주문 아이템을 컴포넌트로 가지며, 주문 아이템은 각각 좌측에 ID, 우측에 아이템 itemName을 배치한다.
+- [x] 주문 목록은 페이징 기능이 구현되어야 한다.
+- [x] 각 주문 아이템을 클릭 시, 상세 주문 페이지로 이동 된다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 마이 페이지 상세
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [x] 주문 아이템 상세 내용을 보기 위한 페이지이다.
+- [x] 주문 상세 내용 페이지에 진입하면, 주문 상세 내용을 가져온다.
+- [x] 주문 상세 내용은 좌측에 id, 우측에 itemName을 배치한다.
